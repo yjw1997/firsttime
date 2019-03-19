@@ -25,20 +25,30 @@
       width="850"
     >
       <Showtops :show="false"></Showtops>
+      <Rewrite :rewriteModal="rewriteModal" :info = "info"></Rewrite>
+      <Comment :comment = "comment"></Comment>
     </Modal>
   </div>
 </template>
 <script>
 import InputList from "../components/service-inputlist";
 import Showtops from "../components/show-taps";
+import Rewrite from "../components/rewrite-modal";
+import Comment from "../components/comment";
 export default {
   name: "applicationservice",
   components: {
     InputList,
-    Showtops
+    Showtops,
+    Rewrite,
+    Comment
   },
   data() {
     return {
+      showComment: false,
+      info:false,
+      comment: false,
+      rewriteModal: false,
       str: ["审批状态", "服务状态", "服务申请", "退订服务"],
       rewriteModal: false,
       statueData: ["所有", "开", "关"],
@@ -126,7 +136,9 @@ export default {
                     size: "small"
                   },
                   on: {
-                    click: () => {}
+                    click: () => {
+                      this.rewriteModal = true
+                    }
                   }
                 },
                 "元数据"
@@ -139,7 +151,9 @@ export default {
                     size: "small"
                   },
                   on: {
-                    click: () => {}
+                    click: () => {
+                      this.comment = true
+                    }
                   }
                 },
                 "评论"

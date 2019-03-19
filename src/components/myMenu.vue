@@ -47,8 +47,8 @@ export default {
   methods: {
     bus(data) {
       if (data.url !== "") {
-        bus.$emit("bus", data);
-        this.$router.push({ path: data.url });
+        bus.$emit("bus", data)
+        this.$router.push({ path: data.url })
         // console.log(data)
       }
     }

@@ -33,6 +33,9 @@ import shuffling from '@/components/shuffling'
 import column from '@/components/column'
 import basic from '@/components/basic'
 
+import Numone from '@/components/Numone'
+import Numtwo from '@/components/Numtwo'
+import Numthree from '@/components/Numthree'
 Vue.use(Router)
 
 export default new Router({
@@ -65,7 +68,24 @@ export default new Router({
         {
           path: '/myservice/registrationservice',
           name: 'registrationservice',
-          component: registrationservice
+          component: registrationservice,
+          children: [
+            {
+              path: '/myservice/registrationservice/Numone',
+              name: 'Numone',
+              component: Numone
+            },
+            {
+              path: '/myservice/registrationservice/Numtwo',
+              name: 'Numtwo',
+              component: Numtwo
+            },
+            {
+              path: '/myservice/registrationservice/Numthree',
+              name: 'Numthree',
+              component: Numthree
+            }
+          ]
         },
         {
           path: '/myservice/gimsservice',

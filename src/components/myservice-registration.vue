@@ -41,6 +41,7 @@ export default {
   },
   data () {
     return {
+      
       str: ['审批状态', '服务状态', '服务注册', '删除服务'],
       modal1: false,
       modal2: false,

@@ -29,7 +29,7 @@
       <TabPane label="服务范围信息" name="rewrite7">
         <rewrite7></rewrite7>
       </TabPane>
-      <TabPane label="瓦片信息" name="rewrite8">
+      <TabPane label="瓦片信息" name="rewrite8" v-if="info">
         <rewrite8></rewrite8>
       </TabPane>
     </Tabs>
@@ -64,6 +64,10 @@ export default {
     rewriteModal: {
       type: Boolean,
       default: false
+    },
+    info:{
+      type: Boolean,
+      default: true
     }
   },
   methods: {

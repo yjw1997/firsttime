@@ -29,7 +29,7 @@ export default {
     AppliEdit,
     AppliView
   },
-  data () {
+  data() {
     return {
       str: ["类型", "状态", "申请时间"],
       modal1: false,
@@ -119,7 +119,7 @@ export default {
                         click: () => {
                           console.log(params.row);
                           this.modal1 = true;
-                          this.editdata = params.row
+                          this.editdata = params.row;
                           // axios.get("../static/data.json").then(response => {
                           //   console.log(response);
                           // });
@@ -128,22 +128,26 @@ export default {
                     },
                     "编辑"
                   ),
-                  h("a", {
-                    on: {
-                      click: () => {
-                        console.log(params.row.id);
-                        if (confirm('您确定要删除嘛？')) {
-                          axios.get("../static/data.json", {
-                            params: {
-                              id: params.row.id
-                            }
-                          }).then(res => {
-
-                          })
+                  h(
+                    "a",
+                    {
+                      on: {
+                        click: () => {
+                          console.log(params.row.id);
+                          if (confirm("您确定要删除嘛？")) {
+                            axios
+                              .get("../static/data.json", {
+                                params: {
+                                  id: params.row.id
+                                }
+                              })
+                              .then(res => {});
+                          }
                         }
                       }
-                    }
-                  }, " 删除")
+                    },
+                    " 删除"
+                  )
                 ]
               );
             } else {
@@ -178,40 +182,38 @@ export default {
       data1: []
     };
   },
-  mounted () {
+  mounted() {
     var self = this;
     // 点击取消按钮
-    Bus.$on("modal1Cancel", function (msg) {
+    Bus.$on("modal1Cancel", function(msg) {
       console.log(msg);
       self.modal1 = false;
     });
     // 点击确定按钮
-    Bus.$on("modal1Ok", function (msg) {
+    Bus.$on("modal1Ok", function(msg) {
       console.log(msg);
-      axios.get("../static/data.json").then(res => {
-
-      })
+      axios.get("../static/data.json").then(res => {});
       self.modal1 = false;
     });
     // 查看
     // 点击取消按钮
-    Bus.$on("modal2Cancel", function (msg) {
+    Bus.$on("modal2Cancel", function(msg) {
       console.log(msg);
       self.modal2 = false;
     });
     // 点击确定按钮
-    Bus.$on("modal2Ok", function (msg) {
+    Bus.$on("modal2Ok", function(msg) {
       console.log(msg);
       self.modal2 = false;
     });
     //获取表格数据
     axios.get("../static/data.json").then(response => {
-      this.data1 = response.data.appDatas
+      this.data1 = response.data.appDatas;
     });
   },
   methods: {
     // 点击搜索按钮由inputlist子组件传递过来的消息
-    listentochildevent (data) {
+    listentochildevent(data) {
       console.log(data);
     }
   }
@@ -226,8 +228,8 @@ export default {
   text-align: center;
 }
 #table::-webkit-scrollbar {
-        display: none;
-    }
+  display: none;
+}
 .table {
   margin-top: 20px;
 }
