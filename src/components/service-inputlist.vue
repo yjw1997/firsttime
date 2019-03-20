@@ -3,13 +3,13 @@
     <div class="ib">
       {{str1}}：
       <Select style="width:200px">
-        <Option v-for="item in SelectData" :value="item">{{ item }}</Option>
+        <Option v-for="item in SelectData" :value="item" :key="item">{{ item }}</Option>
       </Select>
     </div>
     <div class="ib">
       {{str2}}：
       <Select style="width:200px">
-        <Option v-for="item in SelectData" :value="item">{{ item }}</Option>
+        <Option v-for="item in SelectData" :value="item" :key="item">{{ item }}</Option>
       </Select>
     </div>
     <div class="ib">
@@ -23,13 +23,14 @@
       <router-view></router-view>
       <div slot="footer">
         <Button type="primary" v-if="current !== 0" @click="Previous">上一步</Button>
-        <Button type="info" @click="next"  v-if="current !== 2">下一步</Button>
-        <Button type="info"  v-if="current === 2">提交</Button>
+        <Button type="info" @click="next" v-if="current !== 2">下一步</Button>
+        <Button type="info" v-if="current === 2">提交</Button>
       </div>
     </Modal>
   </div>
 </template>
 <script>
+import Bus from "../assets/eventBus.js";
 export default {
   name: "service-inputlist",
   data() {
@@ -40,35 +41,48 @@ export default {
     };
   },
   mounted() {
-    
+    var self = this;
+    Bus.$on("selectVal", function(data) {
+      console.log(data);
+      self.select = data;
+    });
   },
   methods: {
     // 点击服务注册按钮
     resServer() {
       this.modal = true;
       // 自动加载第一个页面
-      this.$router.push({ path: "/myservice/registrationservice/Numone" })
+      this.$router.push({ path: "/myservice/registrationservice/Numone" });
     },
     // 点击上一步
     Previous() {
       if (this.current === 1) {
-        this.$router.push({ path: "/myservice/registrationservice/Numone" })
+        this.$router.push({
+          name: "Numone",
+          params: { current: this.current + 1, select: this.select }
+        });
       } else if (this.current === 2) {
-        this.$router.push({ path: "/myservice/registrationservice/Numtwo" })
+        this.$router.push({
+          name: "Numtwo",
+          params: { current: this.current + 1, select: this.select }
+        });
       }
-      if(this.current > 0){
-      this.current--
+      if (this.current > 0) {
+        this.current--;
       }
     },
     // 点击下一步
     next() {
       if (this.current === 0) {
-        this.$router.push({ name: 'Numtwo',params: {current:this.current+1,select:this.select}})
+        this.$router.push({
+          name: "Numtwo",
+          params: { current: this.current + 1, select: this.select }
+        });
       } else if (this.current === 1) {
-        this.$router.push({ path: "/myservice/registrationservice/Numthree" })
+        this.$router.push({ path: "/myservice/registrationservice/Numthree" });
       }
-      if(this.current<2){
-      this.current++
+      if (this.current < 2) {
+        this.current++;
       }
     }
   },

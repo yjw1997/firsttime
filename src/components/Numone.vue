@@ -24,12 +24,11 @@ export default {
   data() {
     return {
       current: 0,
-      select: "GIMS 地图服务"
+      select:  this.$route.params.select || "GIMS 地图服务"
     };
   },
   methods: {
     selectVal(val) {
-      console.log(val);
      Bus.$emit('selectVal', val)
     }
   }
