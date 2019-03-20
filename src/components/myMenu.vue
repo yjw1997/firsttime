@@ -14,7 +14,7 @@
               <div class="head-padding">时空云平台</div>
             </div>
           </MenuItem>
-          <Submenu :name="item.id" v-for="item in MenuData" :key="item.id" v-if="item.pid === 0">
+          <Submenu :name="item.id" v-for="item in MenuData" :key="item.id" v-if = "item.pid === 0">
             <template slot="title">
               <div @click="bus(item)" style="display:inline-block">
                 <Icon type="ios-paper"/>
@@ -25,7 +25,7 @@
               :name="submenu.id"
               v-for="submenu in MenuData"
               :key="submenu.id"
-              v-if="submenu.pid !== 0 && submenu.pid === item.id"
+              v-if = "submenu.pid !== 0 && submenu.pid === item.id"
               @click.native="bus(submenu)"
             >{{submenu.title}}</MenuItem>
           </Submenu>

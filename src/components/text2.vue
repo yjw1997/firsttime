@@ -10,12 +10,12 @@
         <li>联系人</li>
         </ul>
       <ul >
-          <li>www.baidu.com</li>
-          <li>服务类型：</li>
-          <li>服务类型版本：</li>
-          <li>服务名：</li>
-          <li>服务别名：</li>
-          <li>服务id：</li>
+          <li><Input disabled/></li>
+          <li><Input disabled/></li>
+          <li><Input disabled/></li>
+          <li><Input disabled/></li>
+          <li><Input disabled/></li>
+          <li><Input disabled/></li>
         </ul>
       </div>
         <ul style="font-weight: 700">
@@ -27,12 +27,12 @@
             <li>服务id：</li>
           </ul>
           <ul >
-              <li>www.baidu.com</li>
-              <li>服务类型：</li>
-              <li>服务类型版本：</li>
-              <li>服务名：</li>
-              <li>服务别名：</li>
-              <li>服务id：</li>
+              <li><Input disabled/></li>
+              <li><Input disabled/></li>
+              <li><Input disabled/></li>
+              <li><Input disabled/></li>
+              <li><Input disabled/></li>
+              <li><Input disabled/></li>
             </ul>
     </div>
   </template>

@@ -10,12 +10,12 @@
 </template>
 <script>
 export default {
-  name: "CardTable",
+  name: 'CardTable',
   props: {
     data: {
       title: {
         type: String,
-        default: ""
+        default: ''
       },
       ttitle: {
         type: Array,

@@ -84,118 +84,118 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       starttime: null,
       endtime: null,
       select1: [
         {
-          value: "1",
-          label: "栏目1"
+          value: '1',
+          label: '栏目1'
         },
         {
-          value: "2",
-          label: "栏目2"
+          value: '2',
+          label: '栏目2'
         }
       ],
       select2: [
         {
-          value: "3",
-          label: "通过"
+          value: '3',
+          label: '通过'
         },
         {
-          value: "4",
-          label: "未通过"
+          value: '4',
+          label: '未通过'
         }
       ],
       columns: [
         {
-          type: "selection",
+          type: 'selection',
           width: 60,
-          align: "center"
+          align: 'center'
         },
         {
-          title: "应用名称",
+          title: '应用名称',
           key: "number"
         },
         {
-          title: "业主单位",
+          title: '业主单位',
           key: "servicename"
         },
         {
-          title: "访问地址",
-          key: "servicename1"
+          title: '访问地址',
+          key: 'servicename1'
         },
         {
-          title: "发布时间",
+          title: '发布时间',
           key: "type"
         },
         {
-          title: "排序",
-          key: "time"
+          title: '排序',
+          key: 'time'
         },
         {
-          title: "操作",
-          key: "action",
+          title: '操作',
+          key: 'action',
           width: 300,
           // fixed: right,
-          align: "center",
+          align: 'center',
           render: (h, params) => {
-            return h("div", [
+            return h('div', [
               h(
-                "Button",
+                'Button',
                 {
                   props: {
-                    type: "primary",
-                    size: "small"
+                    type: 'primary',
+                    size: 'small'
                   },
                   style: {
-                    marginRight: "5px"
+                    marginRight: '5px'
                   },
                   on: {
                     click: () => { }
                   }
                 },
-                "预览"
+                '预览'
               ),
               h(
-                "Button",
+                'Button',
                 {
                   props: {
-                    type: "success",
-                    size: "small"
+                    type: 'success',
+                    size: 'small'
                   },
                   on: {
                     click: () => { }
                   }
                 },
-                "置顶"
+                '置顶'
               ),
               h(
-                "Button",
+                'Button',
                 {
                   props: {
-                    type: "info",
-                    size: "small"
+                    type: 'info',
+                    size: 'small'
                   },
                   on: {
                     click: () => { }
                   }
                 },
-                "修改"
+                '修改'
               ),
               h(
-                "Button",
+                'Button',
                 {
                   props: {
-                    type: "warning",
-                    size: "small"
+                    type: 'warning',
+                    size: 'small'
                   },
                   on: {
                     click: () => { }
                   }
                 },
-                "删除"
+                '删除'
               )
             ]);
           }
@@ -203,12 +203,12 @@ export default {
       ],
       data: [
         {
-          number: "1",
-          servicename: "服务申请",
-          servicename1: "服务名1",
-          type: "待提交",
-          status: "未通过",
-          time: "2018-5-22 11:52:22"
+          number: '1',
+          servicename: '服务申请',
+          servicename1: '服务名1',
+          type: '待提交',
+          status: '未通过',
+          time: '2018-5-22 11:52:22'
         }
       ]
     };
@@ -216,16 +216,16 @@ export default {
   methods: {
     getstarttime(datetime) {
       this.starttime = datetime;
-      console.log("1=============", this.starttime);
+      console.log(this.starttime);
     },
     getendtime(datetime) {
       this.endtime = datetime;
-      console.log("2=============", this.endtime);
+      console.log(this.endtime);
     },
     del: function () { },
     search: function () {
       if (this.endtime < this.starttime) {
-        alert("结束时间不能小于开始时间，请重新选择");
+        alert('结束时间不能小于开始时间，请重新选择');
       }
     }
   }

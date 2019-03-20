@@ -17,11 +17,11 @@
   </div>
 </template>
 <script>
-import Bus from "../assets/eventBus";
-import AppliEdit from "../components/appli-edit";
-import AppliView from "../components/appli-view";
-import InputList from "../components/inputlist";
-import axios from "axios";
+import Bus from "../assets/eventBus"
+import AppliEdit from "../components/appli-edit"
+import AppliView from "../components/appli-view"
+import InputList from "../components/inputlist"
+import axios from "axios"
 export default {
   name: "application",
   components: {

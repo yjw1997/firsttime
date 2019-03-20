@@ -9,6 +9,7 @@
         <Option
           v-for="item in SelectData"
           :value="item"
+          :key = "item"
         >{{ item }}</Option>
       </Select>
     </div>
@@ -20,8 +21,9 @@
       >
         <Option
           v-for="item in statueData"
-          :value="item"
-        >{{ item }}</Option>
+          :value="item.name"
+          :key = "item.key"
+        >{{ item.name }}</Option>
       </Select>
     </div>
     <div class="ib">
@@ -72,8 +74,8 @@ export default {
   methods: {
     search() {
       // 获取所有数据传到父组件
-      let type = this.val1
-      let status = this.val2
+      let unit = this.val1
+      let Process = this.val2
       let starTime = Date.parse(new Date(this.starTime))
       let endTime = Date.parse(new Date(this.endTime))
       // 限制不能只输入开始时间或者结束时间
@@ -85,7 +87,7 @@ export default {
           this.$Message.error('您输入的开始日期不能晚于结束日期');
         } else {
           let data = {
-            type, status, starTime, endTime
+            unit, Process, starTime, endTime
           }
           //删除掉空的项
           for (var [index, val] of Object.entries(data)) {

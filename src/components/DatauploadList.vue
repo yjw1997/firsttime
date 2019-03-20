@@ -23,7 +23,7 @@
 </div>
 </template>
 <script>
-import DatauploadButton from "../components/DatauploadButton"
+import DatauploadButton from '../components/DatauploadButton'
 export default{
   name: 'DatauploadList',
   components: {

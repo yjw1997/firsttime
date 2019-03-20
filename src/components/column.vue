@@ -20,27 +20,51 @@
 <template>
   <div id="modalcolumn">
     <div class="time">栏目名称：
-      <Input placeholder="Enter something..." clearable style="width: 200px"/>类型：
+      <Input
+        placeholder="Enter something..."
+        clearable
+        style="width: 200px"
+      />类型：
       <Select style="width:200px">
-        <Option v-for="item in type" :value="item.value" :key="item.value">{{ item.label }}</Option>
+        <Option
+          v-for="item in type"
+          :value="item.value"
+          :key="item.value"
+        >{{ item.label }}</Option>
       </Select>
-      <Button type="primary" icon="ios-search" class="serch-btn">搜索</Button>
+      <Button
+        type="primary"
+        icon="ios-search"
+        class="serch-btn"
+      >搜索</Button>
       <div class="ib fr"></div>
-      <Button type="info" class="add-btn">新增</Button>
+      <Button
+        type="info"
+        class="add-btn"
+      >新增</Button>
     </div>
-    <Table border ref="selection" :columns="columns" :data="data" style="margin-top: 15px;"></Table>
-    <columnview :loading="loading" :modal5="modal5"></columnview>
+    <Table
+      border
+      ref="selection"
+      :columns="columns"
+      :data="data"
+      style="margin-top: 15px;"
+    ></Table>
+    <columnview
+      :loading="loading"
+      :modal5="modal5"
+    ></columnview>
   </div>
 </template>
 <script>
-import Bus from "../assets/eventBus";
-import columnview from "../components/column-modal";
+import Bus from '../assets/eventBus'
+import columnview from '../components/column-modal'
 export default {
-  name: "modalcolumn",
+  name: 'modalcolumn',
   components: {
     columnview
   },
-  data() {
+  data () {
     return {
       modal5: false,
       loading: false,
@@ -48,52 +72,52 @@ export default {
       endtime: null,
       type: [
         {
-          value: "1",
-          label: "type1"
+          value: '1',
+          label: 'type1'
         },
         {
-          value: "2",
-          label: "type2"
+          value: '2',
+          label: 'type2'
         }
       ],
       columns: [
         {
-          title: "栏目名称",
-          key: "number"
+          title: '栏目名称',
+          key: 'number'
         },
         {
-          title: "级别",
-          key: "servicename"
+          title: '级别',
+          key: 'servicename'
         },
         {
-          title: "类型",
-          key: "servicename1"
+          title: '类型',
+          key: 'servicename1'
         },
         {
-          title: "排序",
+          title: '排序',
           key: "type"
         },
         {
-          title: "状态",
-          key: "time"
+          title: '状态',
+          key:'time'
         },
         {
-          title: "操作",
-          key: "action",
+          title: '操作',
+          key: 'action',
           width: 300,
           // fixed: right,
-          align: "center",
+          align: 'center',
           render: (h, params) => {
-            return h("div", [
+            return h('div', [
               h(
-                "Button",
+                'Button',
                 {
                   props: {
-                    type: "primary",
-                    size: "small"
+                    type: 'primary',
+                    size: 'small'
                   },
                   style: {
-                    marginRight: "5px"
+                    marginRight: '5px'
                   },
                   on: {
                     click: () => {
@@ -101,14 +125,14 @@ export default {
                     }
                   }
                 },
-                "添加子项"
+                '添加子项'
               ),
               h(
-                "Button",
+                'Button',
                 {
                   props: {
-                    type: "info",
-                    size: "small"
+                    type: 'info',
+                    size: 'small'
                   },
                   on: {
                     click: () => {
@@ -116,14 +140,14 @@ export default {
                     }
                   }
                 },
-                "查看"
+                '查看'
               ),
               h(
-                "Button",
+                'Button',
                 {
                   props: {
-                    type: "warning",
-                    size: "small"
+                    type: 'warning',
+                    size: 'small'
                   },
                   on: {
                     click: () => {
@@ -131,14 +155,14 @@ export default {
                     }
                   }
                 },
-                "修改"
+                '修改'
               ),
               h(
-                "Button",
+                'Button',
                 {
                   props: {
-                    type: "error",
-                    size: "small"
+                    type: 'error',
+                    size: 'small'
                   },
                   on: {
                     click: () => {
@@ -146,7 +170,7 @@ export default {
                     }
                   }
                 },
-                "删除"
+                '删除'
               )
             ]);
           }
@@ -154,26 +178,26 @@ export default {
       ],
       data: [
         {
-          number: "1",
-          servicename: "服务申请",
-          servicename1: "服务名1",
-          type: "待提交",
-          status: "未通过",
-          time: "2018-5-22 11:52:22"
+          number: '1',
+          servicename: '服务申请',
+          servicename1: '服务名1',
+          type: '待提交',
+          status: '未通过',
+          time: '2018-5-22 11:52:22'
         }
       ]
-    };
+    }
   },
-  mounted() {
-    var self = this;
-    Bus.$on("columncancel", function(msg) {
-      console.log(msg);
-      self.modal5 = false;
+  mounted () {
+    var self = this
+    Bus.$on('columncancel', function (msg) {
+      console.log(msg)
+      self.modal5 = false
     }),
-      Bus.$on("columnok", function(msg) {
-        console.log(msg);
-        self.modal5 = false;
-      });
+    Bus.$on('columnok', function (msg) {
+      console.log(msg)
+      self.modal5 = false
+    })
   }
-};
+}
 </script>
