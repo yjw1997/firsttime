@@ -7,7 +7,6 @@
 	width: 99%;
 }
 .time {
-	margin-left: 2%;
 	margin-top: 15px;
 }
 .add-btn {
@@ -110,7 +109,6 @@ export default {
           title: '操作',
           width: 200,
 					key: 'action',
-					width: 150,
 					align: 'center',
 					render: (h, params) => {
 						return h('div', [

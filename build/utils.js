@@ -19,26 +19,26 @@ exports.cssLoaders = function (options) {
   options = options || {}
   function lessResourceLoader() {
     var loaders = [
-        cssLoader,
-        'less-loader',
-        {
-            loader: 'sass-resources-loader',
-            options: {
-                resources: [
-                    path.resolve(__dirname, '../src/static/global.less'), //定义全局变量的文件路径
-                ]
-            }
-                    }
+      cssLoader,
+      'less-loader',
+      {
+        loader: 'sass-resources-loader',
+        options: {
+          resources: [
+            path.resolve(__dirname, '../src/static/global.less'), //定义全局变量的文件路径
+          ]
+        }
+      }
     ];
     if (options.extract) {
-        return ExtractTextPlugin.extract({
-            use: loaders,
-            fallback: 'vue-style-loader'
-        })
+      return ExtractTextPlugin.extract({
+        use: loaders,
+        fallback: 'vue-style-loader'
+      })
     } else {
-        return ['vue-style-loader'].concat(loaders)
+      return ['vue-style-loader'].concat(loaders)
     }
-}
+  }
   const cssLoader = {
     loader: 'css-loader',
     options: {

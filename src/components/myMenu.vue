@@ -25,7 +25,7 @@
               :name="submenu.id"
               v-for="submenu in MenuData"
               :key="submenu.id"
-              v-if="submenu.pid != 0 && submenu.pid == item.id"
+              v-if="submenu.pid !== 0 && submenu.pid === item.id"
               @click.native="bus(submenu)"
             >{{submenu.title}}</MenuItem>
           </Submenu>
@@ -47,8 +47,8 @@ export default {
   methods: {
     bus(data) {
       if (data.url !== "") {
-        bus.$emit("bus", data)
-        this.$router.push({ path: data.url })
+        bus.$emit("bus", data);
+        this.$router.push({ path: data.url });
         // console.log(data)
       }
     }

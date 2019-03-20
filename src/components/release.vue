@@ -7,7 +7,6 @@
   width: 99%;
 }
 .time {
-  margin-left: 2%;
   margin-top: 15px;
 }
 .add-btn {
@@ -21,12 +20,24 @@
   <div id="recyclebin">
     <form class="table">
       <div class="time">标题：
-        <Input placeholder="Enter something..." clearable style="width: 100px"/>所属栏目：
+        <Input
+          placeholder="Enter something..."
+          clearable
+          style="width: 100px"
+        />所属栏目：
         <Select style="width:125px">
-          <Option v-for="item in select1" :value="item.value" :key="item.value">{{ item.label }}</Option>
+          <Option
+            v-for="item in select1"
+            :value="item.value"
+            :key="item.value"
+          >{{ item.label }}</Option>
         </Select>发布状态：
         <Select style="width:125px">
-          <Option v-for="item in select2" :value="item.value" :key="item.value">{{ item.label }}</Option>
+          <Option
+            v-for="item in select2"
+            :value="item.value"
+            :key="item.value"
+          >{{ item.label }}</Option>
         </Select>发布时间:
         <DatePicker
           type="datetime"
@@ -41,14 +52,32 @@
           id="endtime"
           style="width: 150px"
         ></DatePicker>
-        <Button type="primary" icon="ios-search" @click="search" class="serch-btn">搜索</Button>
-        <div class="fl" style="margin:10px 0px 0px 20px">
-          <Button type="info" class="add-btn">新增</Button>
-          <Button type="error" @click="del" class="del-btn">删除</Button>
-        </div>
+        <Button
+          type="primary"
+          icon="ios-search"
+          @click="search"
+          class="serch-btn"
+        >搜索</Button>
+      </div>
+      <div style="margin-top:10px">
+        <Button
+          type="info"
+          class="add-btn"
+        >新增</Button>
+        <Button
+          type="error"
+          @click="del"
+          class="del-btn"
+        >删除</Button>
       </div>
       <div class="margin-top:30px">
-      <Table border ref="selection" :columns="columns" :data="data" style="margin-top: 50px;"></Table>
+        <Table
+          border
+          ref="selection"
+          :columns="columns"
+          :data="data"
+          class="mt15"
+        ></Table>
       </div>
     </form>
   </div>
@@ -124,7 +153,7 @@ export default {
                     marginRight: "5px"
                   },
                   on: {
-                    click: () => {}
+                    click: () => { }
                   }
                 },
                 "预览"
@@ -137,7 +166,7 @@ export default {
                     size: "small"
                   },
                   on: {
-                    click: () => {}
+                    click: () => { }
                   }
                 },
                 "置顶"
@@ -150,7 +179,7 @@ export default {
                     size: "small"
                   },
                   on: {
-                    click: () => {}
+                    click: () => { }
                   }
                 },
                 "修改"
@@ -163,7 +192,7 @@ export default {
                     size: "small"
                   },
                   on: {
-                    click: () => {}
+                    click: () => { }
                   }
                 },
                 "删除"
@@ -193,8 +222,8 @@ export default {
       this.endtime = datetime;
       console.log("2=============", this.endtime);
     },
-    del: function() {},
-    search: function() {
+    del: function () { },
+    search: function () {
       if (this.endtime < this.starttime) {
         alert("结束时间不能小于开始时间，请重新选择");
       }
